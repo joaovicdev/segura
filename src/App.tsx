@@ -82,6 +82,12 @@ function App() {
     currentPage * USERS_PER_PAGE
   );
 
+  const showOriginalUsers = () => {
+    setFilteredUsers(users);
+    setCurrentPage(1);
+    setSearchText("");
+  };
+
   const handleSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setSearchText(e.target.value);
   };
@@ -122,6 +128,8 @@ function App() {
         </button>
 
         <button onClick={loadUsers}>Recarregar</button>
+
+        <button onClick={showOriginalUsers}>Recarregar sem requisição</button>
       </div>
 
       {isLoading ? (
